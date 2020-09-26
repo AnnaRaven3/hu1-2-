@@ -89,11 +89,39 @@ public class EratosthenesPrimeSieve {
     }
     
      public void evenList() {
-         
+         for (int i = 0; i < evenA.length; i++) {
+            evenA[i] = i;
+        }
+        for (int i = 0; i < evenA.length; i++) {
+            if (isEven(evenA[i]) == false) {
+                evenA[i] = -1;
+            }
+        }
+        for (int i = 0; i < evenA.length; i++) {
+            if (evenA[i] != -1) {
+                evens.add(evenA[i]);
+                
+            }
+        }
      }
      
      public void printResults() {
-         
+         for (int n = 0; n < evens.size(); n++) {
+            for (int i = 0; i < primes.size(); i++) {
+                boolean found = false;
+                for (int j = 0; j < primes.size(); j++) {
+                    if (primes.get(i) + primes.get(j) == evens.get(n)) {
+                        System.out.println(evens.get(n) + ":" + primes.get(i) + "+" + primes.get(j));
+                        found = true;
+                        break;
+                    }
+
+                }
+                if (found) {
+                    break;
+                }
+            }
+        }
      }
     
 }
